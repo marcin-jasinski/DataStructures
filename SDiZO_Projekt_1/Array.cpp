@@ -1,5 +1,9 @@
 #include "stdafx.h"
 #include "Array.h"
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <conio.h>
 
 // default constructor of an array
 Array::Array()
@@ -38,6 +42,31 @@ int * Array::getHeadPtr()
 int Array::operator[](int index) const
 {
 	return _headPtr[index];
+}
+
+// read data from a text file "testData.txt"
+// first line sets array size (number of elements)
+void Array::readDataFromFile()
+{
+	std::fstream file;
+	file.open("testData.txt", std::ios::in);
+	if (file.good() == true)
+	{	
+		std::cout << "\nFile acces granted." << std::endl;
+		std::string input;
+		getline(file, input);
+		this->arraySize = std::stoi(input);
+		this->_headPtr = new int[arraySize];
+
+		for (int i = 0; i < this->arraySize, !file.eof(); i++) {
+			input.clear();
+			std::getline(file, input);
+			this->_headPtr[i] = std::stoi(input);
+		}
+
+		file.close();
+	}
+	else std::cout << "Error opening file!!!" << std::endl;
 }
 
 // overloaded operator for writing array contents to the output stream

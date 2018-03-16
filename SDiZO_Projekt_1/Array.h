@@ -18,6 +18,9 @@ public:
 	int operator[](int) const;
 	friend std::ostream& operator << (std::ostream&, Array&);
 
+	void readDataFromFile();
+	//void readDataFromKeyboard();
+
 	void pushToFront(int);
 	void pushToBack(int);
 	void popFromFront();
