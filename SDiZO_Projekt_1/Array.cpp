@@ -69,6 +69,23 @@ void Array::readDataFromFile()
 	else std::cout << "Error opening file!!!" << std::endl;
 }
 
+// reading data from keyboard input
+void Array::readDataFromKeyboard()
+{
+	std::cout << "\nSet array size: ";
+	int userSize;
+	std::cin >> userSize;
+	this->arraySize = userSize;
+	this->_headPtr = new int[arraySize];
+
+	int userInput;
+	for (int i = 0; i < userSize; i++) {
+		std::cout << "Value at index [" << i << "] : ";
+		std::cin >> userInput;
+		this->_headPtr[i] = userInput;
+	}
+}
+
 // overloaded operator for writing array contents to the output stream
 std::ostream & operator<<(std::ostream& out, Array& array)
 {
@@ -86,7 +103,7 @@ void Array::pushToFront(int element)
 {
 	//if the array is empty
 	if (this->arraySize == 0) {
-		this->_headPtr = new int[0];
+		this->_headPtr = new int[1];
 		this->_headPtr[0] = element;
 		this->arraySize++;
 	}
@@ -102,18 +119,18 @@ void Array::pushToFront(int element)
 // inserts an element on the end of the array
 void Array::pushToBack(int element)
 {
-	//if the array is empty
-	if (this - arraySize == 0) {
-		this->_headPtr = new int[0];
-		this->_headPtr[0] = element;
+	// if the array is empty
+	if (this->arraySize == 0) {
+		this->_headPtr = new int[1];
+		*_headPtr = element;
 		this->arraySize++;
 	}
 	else {
-		int* _tempPtr = new int[this->arraySize + 1];
-		memcpy(_tempPtr, this->_headPtr, arraySize * sizeof(int));
+		int* _tempPtr = new int[arraySize + 1];
+		memcpy(_tempPtr, _headPtr, arraySize * sizeof(int));
+		*(_tempPtr + arraySize) = element;
+		_headPtr = _tempPtr;
 		this->arraySize++;
-		_tempPtr[arraySize] = element;
-		this->_headPtr = _tempPtr;
 	}
 }
  
@@ -126,7 +143,7 @@ void Array::popFromFront()
 // deletes last array element
 void Array::popFromBack()
 {
-	deleteValueFromIndex(this->arraySize + 1);
+	deleteValueFromIndex(this->arraySize - 1);
 }
 
 // inserts a specified value on a selected index in the array and relocates array with a new size
@@ -148,25 +165,26 @@ void Array::insertValueOnIndex(int index, int element)
 // elements originally placed after selected index are shifted by one index number down
 void Array::deleteValueFromIndex(int index)
 {
-	// there is no point of inserting a value from a non-existant array
-	if (this->arraySize == 0) return;
+	// there is no point of deleting a value from a non-existant array
+	if (arraySize == 0) return;
 
-	int* _tempPtr = new int[this->arraySize - 1];
-	memcpy(_tempPtr, this->_headPtr, index * sizeof(int));
-	this->arraySize--;
-	memcpy(_tempPtr + index, this->_headPtr + index + 1, (this->arraySize - index) * sizeof(int));
-	this->_headPtr = _tempPtr;
+	int* _tempPtr = new int[arraySize - 1];
+	memcpy(_tempPtr, _headPtr, index * sizeof(int));
+	arraySize--;
+	memcpy(_tempPtr + index, _headPtr + index + 1, (arraySize - index) * sizeof(int));
+	_headPtr = _tempPtr;
 }
 
 // returns true if array contains specified value
-bool Array::findValue(int element)
+void Array::findValue(int element)
 {
 	for (int i = 0; i < this->arraySize; i++) {
 		if (*(this->_headPtr + i) == element) {
-			std::cout << "Element found on position " + i;
-			return true;
+			std::cout << "Element found on position " << i << std::endl;
+			return;
 		}
 	}
-	return false;
+	std::cout << "Element not found." << std::endl;
+	return;
 }
 

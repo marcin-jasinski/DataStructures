@@ -19,7 +19,7 @@ public:
 	friend std::ostream& operator << (std::ostream&, Array&);
 
 	void readDataFromFile();
-	//void readDataFromKeyboard();
+	void readDataFromKeyboard();
 
 	void pushToFront(int);
 	void pushToBack(int);
@@ -27,6 +27,6 @@ public:
 	void popFromBack();
 	void insertValueOnIndex(int, int);
 	void deleteValueFromIndex(int);
-	bool findValue(int);
+	void findValue(int);
 };
 

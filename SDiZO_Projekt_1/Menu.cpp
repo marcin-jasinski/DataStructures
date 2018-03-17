@@ -1,7 +1,10 @@
 #include "stdafx.h"
 #include "Menu.h"
-#include <iostream>
 #include "Array.h"
+#include "ArrayMenu.h"
+#include <iostream>
+#include <cstdlib>
+
 
 Menu::Menu()
 {
@@ -10,7 +13,7 @@ Menu::Menu()
 
 void Menu::showMainMenu()
 {
-	Array array = Array();
+	ArrayMenu arrayMenu = ArrayMenu();
 
 	std::cout << "Start testing for:\n" << std::endl;
 	std::cout << "1 - Array" << std::endl;
@@ -27,8 +30,7 @@ void Menu::showMainMenu()
 	switch (userChoice)
 	{
 	case 1:
-		array.readDataFromFile();
-		//showArrayMenu();
+		arrayMenu.showArrayMenu();
 		break;
 	case 2:
 		//showListMenu();
@@ -46,3 +48,4 @@ void Menu::showMainMenu()
 		break;
 	}
 }
+
