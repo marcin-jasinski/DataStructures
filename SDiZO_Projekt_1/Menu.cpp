@@ -2,7 +2,7 @@
 #include "Menu.h"
 #include "Array.h"
 #include "ArrayMenu.h"
-
+#include "LinkedListMenu.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -15,6 +15,8 @@ Menu::Menu()
 void Menu::showMainMenu()
 {
 	ArrayMenu arrayMenu = ArrayMenu();
+	LinkedListMenu linkedListMenu = LinkedListMenu();
+
 
 	std::cout << "Start testing for:\n" << std::endl;
 	std::cout << "1 - Array" << std::endl;
@@ -34,7 +36,7 @@ void Menu::showMainMenu()
 		arrayMenu.showArrayMenu();
 		break;
 	case 2:
-		//showListMenu();
+		linkedListMenu.showLinkedListMenu();
 		break;
 	case 3:
 		//showHeapMenu();

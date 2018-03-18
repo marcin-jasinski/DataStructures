@@ -149,6 +149,8 @@
   <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="ArrayMenu.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="LinkedListMenu.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="stdafx.h" />
@@ -157,6 +159,8 @@
   <ItemGroup>
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="ArrayMenu.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="LinkedListMenu.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="SDiZO_Projekt_1.cpp" />

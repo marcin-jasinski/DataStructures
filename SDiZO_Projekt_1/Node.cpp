@@ -10,7 +10,7 @@ Node::Node()
 }
 
 // creates a Node element with specified value, left and right neighbour
-Node::Node(Node * _leftPtrArg, Node * _rightPtrArg, int valueArg)
+Node::Node(Node* _leftPtrArg, Node* _rightPtrArg, int valueArg)
 {
 	this->_leftPtr = _leftPtrArg;
 	this->_rightPtr = _rightPtrArg;
