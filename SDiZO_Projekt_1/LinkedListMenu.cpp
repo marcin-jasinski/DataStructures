@@ -62,7 +62,7 @@ void LinkedListMenu::showOperationsMenu()
 	int userInput;
 	int userIndex;
 
-	while (userChoice != 8) {
+	while (userChoice != 9) {
 		switch (userChoice) {
 		case 1:
 			std::cout << "\nValue to add: ";
