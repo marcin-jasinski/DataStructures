@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="ArrayMenu.h" />
+    <ClInclude Include="Heap.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkedListMenu.h" />
     <ClInclude Include="Menu.h" />
@@ -159,6 +160,7 @@
   <ItemGroup>
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="ArrayMenu.cpp" />
+    <ClCompile Include="Heap.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="LinkedListMenu.cpp" />
     <ClCompile Include="Menu.cpp" />

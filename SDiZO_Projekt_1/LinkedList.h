@@ -17,6 +17,8 @@ public:
 	Node* getNodeFromIndex(int);
 
 	void readDataFromFile();
+	void readDataFromKeyboard();
+
 	void pushToFront(int);
 	void pushToBack(int);
 	void popFromFront();

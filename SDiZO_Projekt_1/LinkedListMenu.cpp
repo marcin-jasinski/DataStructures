@@ -8,9 +8,7 @@ LinkedListMenu::LinkedListMenu()
 	this->linkedList = LinkedList();
 }
 
-LinkedListMenu::~LinkedListMenu()
-{
-}
+LinkedListMenu::~LinkedListMenu(){}
 
 void LinkedListMenu::showLinkedListMenu()
 {
@@ -32,7 +30,7 @@ void LinkedListMenu::showLinkedListMenu()
 		break;
 
 	case 2:
-		//linkedList.readDataFromKeyboard();
+		linkedList.readDataFromKeyboard();
 		std::cout << "\nArray read from keyboard: " << std::endl;
 		std::cout << linkedList << std::endl;
 		showOperationsMenu();

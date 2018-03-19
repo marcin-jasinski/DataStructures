@@ -44,6 +44,7 @@ Node* LinkedList::getNodeFromIndex(int index)
 }
 
 // reading data from "testData.txt" file
+// first line indicates list size
 void LinkedList::readDataFromFile()
 {
 	std::fstream file;
@@ -53,7 +54,7 @@ void LinkedList::readDataFromFile()
 		std::cout << "\nFile acces granted." << std::endl;
 		std::string input;
 		getline(file, input);
-		int listSize = std::stoi(input); // first line indicates list size
+		int listSize = std::stoi(input); 
 
 		// getting elements and pushing them to the list
 		for (int i = 0; i < listSize, !file.eof(); i++) {
@@ -65,6 +66,23 @@ void LinkedList::readDataFromFile()
 		file.close();
 	}
 	else std::cout << "Error opening file!!!" << std::endl;
+}
+
+// reading data from keyboard input
+// first entry sets list size
+void LinkedList::readDataFromKeyboard() {
+
+	std::cout << "\nSet list size: ";
+	int userSize;
+	std::cin >> userSize;
+	
+	int userInput;
+	// getting elements and pushing them to the list
+	for (int i = 0; i < userSize; i++) {
+		std::cout << "Value at index [" << i << "] : ";
+		std::cin >> userInput;
+		pushToBack(userInput);
+	}
 }
 
 // function pushes element to the beginning of linked list

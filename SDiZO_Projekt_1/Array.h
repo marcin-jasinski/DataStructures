@@ -4,19 +4,16 @@
 class Array
 {
 private:
-	int* _headPtr;
-	int arraySize;
+	int* _headPtr;	// pointer to dynamic array of integers
+	int arraySize;  // current number of elements in the array
 
 public:
 	Array();
-	Array(int, int*);
+	Array(int);
 	~Array();
 
 	int getSize() const;
 	int* getHeadPtr();
-
-	int operator[](int) const;
-	friend std::ostream& operator << (std::ostream&, Array&);
 
 	void readDataFromFile();
 	void readDataFromKeyboard();
@@ -27,6 +24,10 @@ public:
 	void popFromBack();
 	void insertValueOnIndex(int, int);
 	void deleteValueFromIndex(int);
+	void replaceValueOnIndex(int, int);
 	void findValue(int);
+
+	int operator[](int) const;
+	friend std::ostream& operator << (std::ostream&, Array&);
 };
 
