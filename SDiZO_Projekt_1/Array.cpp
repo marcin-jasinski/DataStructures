@@ -121,12 +121,22 @@ void Array::pushToBack(int element)
 // deletes first array element
 void Array::popFromFront()
 {
+	if (this->arraySize == 0) {
+		std::cout << "Array is empty." << std::endl;
+		return;
+	}
+
 	deleteValueFromIndex(0);
 }
 
 // deletes last array element
 void Array::popFromBack()
 {
+	if (this->arraySize == 0) {
+		std::cout << "Array is empty." << std::endl;
+		return;
+	}
+
 	deleteValueFromIndex(this->arraySize - 1);
 }
 
@@ -150,7 +160,10 @@ void Array::insertValueOnIndex(int index, int element)
 void Array::deleteValueFromIndex(int index)
 {
 	// there is no point of deleting a value from a non-existant array
-	if (arraySize == 0) return;
+	if (arraySize == 0) {
+		std::cout << "Array is empty." << std::endl;
+		return;
+	}
 
 	int* _tempPtr = new int[arraySize - 1];						// temporal "buffer" array for holding already existing elements
 	memcpy(_tempPtr, _headPtr, index * sizeof(int));
@@ -192,6 +205,11 @@ int Array::operator[](int index) const
 // overloaded operator for writing array contents to the output stream
 std::ostream & operator<<(std::ostream& out, Array& array)
 {
+	if (array.arraySize == 0) {
+		out << "[empty]" << std::endl;
+		return out;
+	}
+
 	out << "[";
 	for (int i = 0; i < array.getSize(); i++) {
 		out << array[i];

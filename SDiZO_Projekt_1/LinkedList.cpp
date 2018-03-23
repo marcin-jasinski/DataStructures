@@ -35,7 +35,10 @@ int LinkedList::getSize() const
 Node* LinkedList::getNodeFromIndex(int index)
 {
 	// IndexOutOfBound
-	if (index < 0 || index >= listSize) return nullptr;
+	if (index < 0 || index >= listSize) {
+		std::cout << "No such index in the list." << std::endl;
+		return nullptr;
+	}
 
 	Node* searchedNode = _headPtr;	// start searching from the head
 	for (int i = 0; i != index; i++) searchedNode = searchedNode->_rightPtr; // move to the right until you've reached desired element
@@ -120,7 +123,11 @@ void LinkedList::pushToBack(int element)
 // function deletes an element from the beginning of the list
 void LinkedList::popFromFront()
 {
-	if (listSize == 0) return; // no point of deleting a non-existent element
+	if (listSize == 0) {
+		std::cout << "List is empty." << std::endl;
+		return; // no point of deleting a non-existent element
+	}
+
 	if (listSize == 1) {	   // if there is only one element - just nullify pointers and value
 		_headPtr = nullptr;
 		_tailPtr = nullptr;
@@ -231,6 +238,11 @@ void LinkedList::findValue(int element)
 // overloaded << operator for easier list displaying
 std::ostream & operator<<(std::ostream& out, LinkedList& list)
 {
+	if (list.listSize == 0) {
+		out << "[empty]" << std::endl;
+		return out;
+	}
+
 	out << "[";
 	for (int i = 0; i < list.getSize(); i++) {
 		out << list.getValueFromIndex(i);
