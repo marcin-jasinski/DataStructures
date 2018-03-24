@@ -82,7 +82,7 @@ void Array::readDataFromKeyboard()
 }
 
 // inserts en element on the beginning of the array
-void Array::pushToFront(int element)
+void Array::pushFront(int element)
 {
 	//if the array is empty
 	if (this->arraySize == 0) {
@@ -101,7 +101,7 @@ void Array::pushToFront(int element)
 }
 
 // inserts an element on the end of the array
-void Array::pushToBack(int element)
+void Array::pushBack(int element)
 {
 	// if the array is empty
 	if (this->arraySize == 0) {
@@ -119,7 +119,7 @@ void Array::pushToBack(int element)
 }
  
 // deletes first array element
-void Array::popFromFront()
+void Array::popFront()
 {
 	if (this->arraySize == 0) {
 		std::cout << "Array is empty." << std::endl;
@@ -130,7 +130,7 @@ void Array::popFromFront()
 }
 
 // deletes last array element
-void Array::popFromBack()
+void Array::popBack()
 {
 	if (this->arraySize == 0) {
 		std::cout << "Array is empty." << std::endl;
@@ -196,10 +196,15 @@ void Array::findValue(int element)
 	return;
 }
 
+int Array::get(int index)
+{
+	return *(_headPtr + index);
+}
+
 // overloaded [] operator for array-like element acces
 int Array::operator[](int index) const
 {
-	return _headPtr[index];
+	return *(_headPtr+index);
 }
 
 // overloaded operator for writing array contents to the output stream

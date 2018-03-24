@@ -19,15 +19,17 @@ public:
 	void readDataFromFile();
 	void readDataFromKeyboard();
 
-	void pushToFront(int);
-	void pushToBack(int);
-	void popFromFront();
-	void popFromBack();
+	void pushFront(int);
+	void pushBack(int);
+	void popFront();
+	void popBack();
+
+	int getValueFromIndex(int);
 	void insertValueOnIndex(int, int);
 	void replaceValueOnIndex(int, int);
-	void removeNode(int);
-	int getValueFromIndex(int);
 	void findValue(int);
+
+	void removeNode(int);
 	
 	friend std::ostream & operator<<(std::ostream&, LinkedList&);
 };

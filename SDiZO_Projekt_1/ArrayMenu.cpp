@@ -65,14 +65,14 @@ void ArrayMenu::showOperationsMenu()
 		case 1:
 			std::cout << "\nValue to add: ";
 			std::cin >> userInput;
-			array.pushToFront(userInput);
+			array.pushFront(userInput);
 			std::cout << array << std::endl;
 			break;
 
 		case 2:
 			std::cout << "\nValue to add: ";
 			std::cin >> userInput;
-			array.pushToBack(userInput);
+			array.pushBack(userInput);
 			std::cout << array << std::endl;
 			break;
 
@@ -86,12 +86,12 @@ void ArrayMenu::showOperationsMenu()
 			break;
 
 		case 4:
-			array.popFromFront();
+			array.popFront();
 			std::cout << array << std::endl;
 			break;
 
 		case 5:
-			array.popFromBack();
+			array.popBack();
 			std::cout << array << std::endl;
 			break;
 

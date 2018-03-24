@@ -63,7 +63,7 @@ void LinkedList::readDataFromFile()
 		for (int i = 0; i < listSize, !file.eof(); i++) {
 			input.clear();
 			std::getline(file, input);
-			pushToBack(std::stoi(input));
+			pushBack(std::stoi(input));
 		}
 
 		file.close();
@@ -84,13 +84,13 @@ void LinkedList::readDataFromKeyboard() {
 	for (int i = 0; i < userSize; i++) {
 		std::cout << "Value at index [" << i << "] : ";
 		std::cin >> userInput;
-		pushToBack(userInput);
+		pushBack(userInput);
 	}
 }
 
 // function pushes element to the beginning of linked list
 // each element being previously a head of the list now has assigned a left neighbour, thus is no longer a head
-void LinkedList::pushToFront(int element)
+void LinkedList::pushFront(int element)
 {
 	// if the list is empty - create a new node
 	if (listSize == 0) {
@@ -106,10 +106,10 @@ void LinkedList::pushToFront(int element)
 	}
 }
 
-void LinkedList::pushToBack(int element)
+void LinkedList::pushBack(int element)
 {
 	// should the list be empty, insert element on the beginning of the list
-	if (listSize == 0) pushToFront(element);
+	if (listSize == 0) pushFront(element);
 	else {
 		// set current tail element value and create an empty Node element which will be next tail
 		// make current tails right pointer point to newly created tail element
@@ -121,7 +121,7 @@ void LinkedList::pushToBack(int element)
 }
 
 // function deletes an element from the beginning of the list
-void LinkedList::popFromFront()
+void LinkedList::popFront()
 {
 	if (listSize == 0) {
 		std::cout << "List is empty." << std::endl;
@@ -142,9 +142,9 @@ void LinkedList::popFromFront()
 }
 
 // function deletes an element from the end of the list
-void LinkedList::popFromBack()
+void LinkedList::popBack()
 {
-	if (listSize == 1 || listSize == 0) popFromFront(); // if there is only one or zero elements (refer to popFromFront for handling listSize == 0 case)
+	if (listSize == 1 || listSize == 0) popFront(); // if there is only one or zero elements (refer to popFromFront for handling listSize == 0 case)
 	else {
 		_tailPtr = _tailPtr->_leftPtr;	// move tail's left pointer to the previous element
 		delete _tailPtr->_rightPtr;
@@ -157,11 +157,11 @@ void LinkedList::popFromBack()
 void LinkedList::insertValueOnIndex(int index, int element)
 {
 	if (index == 0) {								// inserting on the beginning of the list
-		pushToFront(element); 
+		pushFront(element); 
 		return; 
 	}						
 	if (index == this->listSize - 1) {				// inserting on the end of the list 
-		pushToBack(element); 
+		pushBack(element); 
 		return; 
 	}		
 
@@ -195,8 +195,8 @@ void LinkedList::replaceValueOnIndex(int index, int element)
 void LinkedList::removeNode(int index)
 {
 	// removing from the beginning or the end of the list
-	if (index == 0) { popFromFront(); return; }
-	if (index == this->listSize - 1) { popFromBack(); return; }
+	if (index == 0) { popFront(); return; }
+	if (index == this->listSize - 1) { popBack(); return; }
 
 	Node* toRemove = getNodeFromIndex(index);
 	(toRemove->_leftPtr)->_rightPtr = (toRemove->_rightPtr);		// make current node's left neighbour point to current right neighbour

@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "Menu.h"
-#include "Array.h"
 #include "ArrayMenu.h"
 #include "LinkedListMenu.h"
+#include "BinaryHeapMenu.h"
+
 #include <iostream>
 #include <cstdlib>
-
 
 Menu::Menu()
 {
@@ -16,15 +16,14 @@ void Menu::showMainMenu()
 {
 	ArrayMenu arrayMenu = ArrayMenu();
 	LinkedListMenu linkedListMenu = LinkedListMenu();
-
-
+	BinaryHeapMenu binaryHeapMenu = BinaryHeapMenu();
+	
 	std::cout << "Start testing for:\n" << std::endl;
 	std::cout << "1 - Array" << std::endl;
 	std::cout << "2 - List" << std::endl;
 	std::cout << "3 - Heap" << std::endl;
-	std::cout << "4 - Red-Black Tree" << std::endl;
 	std::cout << "_______________________\n" << std::endl;
-	std::cout << "5 - Exit application\n" << std::endl;
+	std::cout << "4 - Exit application\n" << std::endl;
 	std::cout << "/> ";
 
 	int userChoice;
@@ -39,12 +38,9 @@ void Menu::showMainMenu()
 		linkedListMenu.showLinkedListMenu();
 		break;
 	case 3:
-		//showHeapMenu();
+		binaryHeapMenu.showBinaryHeapMenu();
 		break;
 	case 4:
-		//showRedBlackTreeMenu();
-		break;
-	case 5:
 		std::cout << "Finishing...";
 		break;
 	default:

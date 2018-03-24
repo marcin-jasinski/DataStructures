@@ -65,14 +65,14 @@ void LinkedListMenu::showOperationsMenu()
 		case 1:
 			std::cout << "\nValue to add: ";
 			std::cin >> userInput;
-			linkedList.pushToFront(userInput);
+			linkedList.pushFront(userInput);
 			std::cout << linkedList << std::endl;
 			break;
 
 		case 2:
 			std::cout << "\nValue to add: ";
 			std::cin >> userInput;
-			linkedList.pushToBack(userInput);
+			linkedList.pushBack(userInput);
 			std::cout << linkedList << std::endl;
 			break;
 
@@ -86,12 +86,12 @@ void LinkedListMenu::showOperationsMenu()
 			break;
 
 		case 4:
-			linkedList.popFromFront();
+			linkedList.popFront();
 			std::cout << linkedList << std::endl;
 			break;
 
 		case 5:
-			linkedList.popFromBack();
+			linkedList.popBack();
 			std::cout << linkedList << std::endl;
 			break;
 

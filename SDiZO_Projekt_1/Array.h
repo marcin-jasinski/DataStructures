@@ -18,16 +18,19 @@ public:
 	void readDataFromFile();
 	void readDataFromKeyboard();
 
-	void pushToFront(int);
-	void pushToBack(int);
-	void popFromFront();
-	void popFromBack();
+	void pushFront(int);
+	void pushBack(int);
+	void popFront();
+	void popBack();
+
 	void insertValueOnIndex(int, int);
 	void deleteValueFromIndex(int);
 	void replaceValueOnIndex(int, int);
 	void findValue(int);
 
+	int get(int);
 	int operator[](int) const;
+
 	friend std::ostream& operator << (std::ostream&, Array&);
 };
 
