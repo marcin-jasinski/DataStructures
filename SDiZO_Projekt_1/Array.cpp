@@ -23,8 +23,8 @@ Array::Array(int arraySize)
 // default destructor
 Array::~Array()
 {
+	this->_headPtr = nullptr;
 	this->arraySize = 0;
-	delete[] this->_headPtr;
 }
 
 // returns current size (number of elements in the array)
@@ -50,17 +50,20 @@ void Array::readDataFromFile()
 		std::cout << "\nFile acces granted." << std::endl;
 		std::string input;
 		getline(file, input);
+
 		this->arraySize = std::stoi(input);
 		this->_headPtr = new int[arraySize];	// creating new integer array
 
-		for (int i = 0; i < this->arraySize, !file.eof(); i++) {
+		for (int i = 0; i < this->arraySize && !file.eof(); i++) {
 			input.clear();
 			std::getline(file, input);
+			// std::cout << "Input " << i << " = " << input << std::endl;
 			this->_headPtr[i] = std::stoi(input);
 		}
 
 		file.close();
 	}
+
 	else std::cout << "Error opening file!!!" << std::endl;
 }
 
@@ -112,6 +115,7 @@ void Array::pushBack(int element)
 	else {
 		int* _tempPtr = new int[arraySize + 1];								// same thing as above, but this time elements is inserted on the end of array
 		memcpy(_tempPtr, _headPtr, arraySize * sizeof(int));
+		delete[] _headPtr;
 		_tempPtr[arraySize] = element;
 		_headPtr = _tempPtr;
 		this->arraySize++;
@@ -151,6 +155,7 @@ void Array::insertValueOnIndex(int index, int element)
 	memcpy(_tempPtr, this->_headPtr, index * sizeof(int));		 // copying to buffer only elements originally being "above" new element (thus index*sizeof(int))
 	_tempPtr[index] = element;
 	memcpy(_tempPtr + index + 1, this->_headPtr + index, (this->arraySize - index) * sizeof(int)); // placing the rest of the elements back with one index up
+	delete[] _headPtr;
 	this->_headPtr = _tempPtr;	// assigning head pointer back to point on array
 	this->arraySize++;
 }
@@ -169,6 +174,7 @@ void Array::deleteValueFromIndex(int index)
 	memcpy(_tempPtr, _headPtr, index * sizeof(int));
 	this->arraySize--;
 	memcpy(_tempPtr + index, this->_headPtr + index + 1, (this->arraySize - index) * sizeof(int));
+	delete[] _headPtr;
 	this->_headPtr = _tempPtr;
 }
 

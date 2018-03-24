@@ -151,6 +151,7 @@
     <ClInclude Include="ArrayMenu.h" />
     <ClInclude Include="BinaryHeap.h" />
     <ClInclude Include="BinaryHeapMenu.h" />
+    <ClInclude Include="Efficiency_TESTS.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkedListMenu.h" />
     <ClInclude Include="Menu.h" />
@@ -163,6 +164,7 @@
     <ClCompile Include="ArrayMenu.cpp" />
     <ClCompile Include="BinaryHeap.cpp" />
     <ClCompile Include="BinaryHeapMenu.cpp" />
+    <ClCompile Include="Efficiency_TESTS.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="LinkedListMenu.cpp" />
     <ClCompile Include="Menu.cpp" />

@@ -45,6 +45,9 @@
     <ClInclude Include="BinaryHeapMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Efficiency_TESTS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -75,6 +78,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BinaryHeapMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Efficiency_TESTS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

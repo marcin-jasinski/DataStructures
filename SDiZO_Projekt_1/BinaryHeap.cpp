@@ -7,10 +7,11 @@
 
 // default heap constructor is empty
 // no need to pre-initialize elements array
-BinaryHeap::BinaryHeap() {}
+BinaryHeap::BinaryHeap() 
+{
+}
 
 // default destructor
-// freeing memory occupied by heap elements
 BinaryHeap::~BinaryHeap()
 {
 }
@@ -27,10 +28,9 @@ void BinaryHeap::readDataFromFile()
 		std::string input;
 		getline(file, input);
 		int initialHeapSize = std::stoi(input);
+	    this->heapElements = new Array();		// creating new integer array
 
-		this->heapElements = new Array[initialHeapSize];	// creating new integer array
-
-		for (int i = 0; i < this->heapElements->getSize(), !file.eof(); i++) {
+		for (int i = 0; i < initialHeapSize && !file.eof(); i++) {
 			input.clear();
 			std::getline(file, input);
 			this->addNewElement(std::stoi(input));
@@ -49,8 +49,8 @@ void BinaryHeap::readDataFromKeyboard()
 	std::cin >> userSize;
 
 	int initialHeapSize = userSize;
-	this->heapElements = new Array[initialHeapSize];	// creating new integer array
-
+	this->heapElements = new Array();		// creating new integer array
+	
 	int userInput;
 	for (int i = 0; i < userSize; i++) {
 		std::cout << "Value at index [" << i << "] : ";
@@ -126,14 +126,14 @@ int BinaryHeap::parent(int childIndex)
 
 // fixing the heap upwards
 // function compares current child element with its parent and if the parent element is smaller than it's child - swaps them
-void BinaryHeap::heapFix_UP(int in)
+void BinaryHeap::heapFix_UP(int startIndex)
 {
-	if (in >= 0 && parent(in) >= 0 && heapElements->get(parent(in)) < heapElements->get(in))
+	if (startIndex >= 0 && parent(startIndex) >= 0 && heapElements->get(parent(startIndex)) < heapElements->get(startIndex))
 	{
-		int tempHold = heapElements->get(in); // temporary holding parent element
-		heapElements->replaceValueOnIndex(in, heapElements->get(parent(in)));
-		heapElements->replaceValueOnIndex(parent(in), tempHold);
-		heapFix_UP(parent(in));
+		int tempHold = heapElements->get(startIndex); // temporary holding parent element
+		heapElements->replaceValueOnIndex(startIndex, heapElements->get(parent(startIndex)));
+		heapElements->replaceValueOnIndex(parent(startIndex), tempHold);
+		heapFix_UP(parent(startIndex));
 	}
 }
 

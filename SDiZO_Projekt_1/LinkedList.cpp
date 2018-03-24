@@ -16,12 +16,9 @@ LinkedList::LinkedList()
 // LinkedList destructor deletes each element by iterating from the head to tail
 LinkedList::~LinkedList()
 {
-	while (_headPtr != _tailPtr) {				// while head does not point to the same place as tail
-		_headPtr = _headPtr->_rightPtr;			// move head to it's right neighbour
-		delete _headPtr->_leftPtr;				// and delete it's current left neighbour
-	}
-
-	delete this->_tailPtr;						// nullify tail pointer after reaching the end of the list
+	this->listSize = 0;
+	delete this->_tailPtr;
+	delete this->_headPtr;
 }
 
 // returning current list size (number of elements)
@@ -60,7 +57,7 @@ void LinkedList::readDataFromFile()
 		int listSize = std::stoi(input); 
 
 		// getting elements and pushing them to the list
-		for (int i = 0; i < listSize, !file.eof(); i++) {
+		for (int i = 0; i < listSize && !file.eof(); i++) {
 			input.clear();
 			std::getline(file, input);
 			pushBack(std::stoi(input));

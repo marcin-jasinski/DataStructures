@@ -20,6 +20,7 @@ Node::Node(Node* _leftPtrArg, Node* _rightPtrArg, int valueArg)
 // destructor sets current node neighbours to point at each other (so as if to "bypass" current node)
 Node::~Node()
 {
+	if (this == nullptr) return;
 	if (_leftPtr != nullptr) _leftPtr->_rightPtr = this->_rightPtr;
 	if (_rightPtr != nullptr) _rightPtr->_leftPtr = this->_leftPtr;
 }
