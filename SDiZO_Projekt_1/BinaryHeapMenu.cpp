@@ -38,6 +38,7 @@ void BinaryHeapMenu::showBinaryHeapMenu()
 		break;
 
 	default:
+		std::cout << "Invalid command" << std::endl;
 		break;
 	}
 }
@@ -76,10 +77,17 @@ void BinaryHeapMenu::showOperationsMenu()
 			break;
 
 		case 4:
+			std::cout << "\nValue to find: ";
+			std::cin >> userInput;
+			heap.findValue(userInput);
+			break;
+
+		case 5:
 			std::cout << "Press ENTER to exit.";
 			break;
 
 		default:
+			std::cout << "Invalid command" << std::endl;
 			break;
 		}
 

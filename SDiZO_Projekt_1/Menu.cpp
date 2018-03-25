@@ -44,6 +44,7 @@ void Menu::showMainMenu()
 		std::cout << "Finishing...";
 		break;
 	default:
+		std::cout << "Invalid command" << std::endl;
 		break;
 	}
 }

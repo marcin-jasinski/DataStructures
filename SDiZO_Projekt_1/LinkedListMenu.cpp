@@ -37,6 +37,7 @@ void LinkedListMenu::showLinkedListMenu()
 		break;
 
 	default:
+		std::cout << "Invalid command" << std::endl;
 		break;
 	}
 }
@@ -122,6 +123,7 @@ void LinkedListMenu::showOperationsMenu()
 			break;
 
 		default:
+			std::cout << "Invalid command" << std::endl;
 			break;
 		}
 

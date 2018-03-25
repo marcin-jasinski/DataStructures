@@ -148,6 +148,13 @@ void Array::popBack()
 // elements originally placed after selected index are shifted by one index number up
 void Array::insertValueOnIndex(int index, int element)
 {
+	// Index out of bounds 
+	if (index < 0 || index >= arraySize)
+	{
+		std::cout << "Index out of bounds." << std::endl;
+		return;
+	}
+
 	// there is no point of inserting a value to a non-existant array without explicit intention
 	if (this->arraySize == 0) return;
 	
@@ -164,6 +171,13 @@ void Array::insertValueOnIndex(int index, int element)
 // elements originally placed after selected index are shifted by one index number down
 void Array::deleteValueFromIndex(int index)
 {
+	// Index out of bounds 
+	if (index < 0 || index >= arraySize)
+	{
+		std::cout << "Index out of bounds." << std::endl;
+		return;
+	}
+
 	// there is no point of deleting a value from a non-existant array
 	if (arraySize == 0) {
 		std::cout << "Array is empty." << std::endl;
@@ -181,7 +195,9 @@ void Array::deleteValueFromIndex(int index)
 // replacing an old value at index "index" with a new one "element"
 void Array::replaceValueOnIndex(int index, int element)
 {
-	if (index < 0 || index >= arraySize) {
+	// Index out of bounds 
+	if (index < 0 || index >= arraySize)
+	{
 		std::cout << "Index out of bounds." << std::endl;
 		return;
 	}

@@ -38,6 +38,7 @@ void ArrayMenu::showArrayMenu()
 		break;
 
 	default:
+		std::cout << "Invalid command" << std::endl;
 		break;
 	}
 }
@@ -113,6 +114,7 @@ void ArrayMenu::showOperationsMenu()
 			break;
 
 		default:
+			std::cout << "Invalid command" << std::endl;
 			break;
 		}
 

@@ -163,7 +163,6 @@ void LinkedList::insertValueOnIndex(int index, int element)
 	}		
 
 	Node* tempNode = getNodeFromIndex(index);
-
 	if (tempNode == nullptr) {						// handling an invalid index 
 		std::cout << "Index not found." << std::endl; 
 		return;
@@ -196,6 +195,11 @@ void LinkedList::removeNode(int index)
 	if (index == this->listSize - 1) { popBack(); return; }
 
 	Node* toRemove = getNodeFromIndex(index);
+	if (toRemove == nullptr) {											// handling an invalid index 
+		std::cout << "Index not found." << std::endl;
+		return;
+	}
+
 	(toRemove->_leftPtr)->_rightPtr = (toRemove->_rightPtr);		// make current node's left neighbour point to current right neighbour
 	(toRemove->_rightPtr)->_leftPtr = (toRemove->_leftPtr);			// make currend node's right neighbour point to current left neighbour
 	delete toRemove;												// delete node after reassigning pointers
