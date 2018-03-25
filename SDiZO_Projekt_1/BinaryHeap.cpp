@@ -88,6 +88,14 @@ void BinaryHeap::deleteRoot()
 	std::cout << "Element Deleted" << std::endl;
 }
 
+// finding a value in the heap
+// uses already implemented function from Array class
+void BinaryHeap::findValue(int element)
+{
+	this->heapElements->findValue(element);
+	return;
+}
+
 // returns current maximum element (root)
 int BinaryHeap::getRoot()
 {
@@ -176,5 +184,6 @@ std::ostream & operator<<(std::ostream & out, BinaryHeap & heap)
 		if (i == heap.heapElements->getSize() - 1) out << "]\n";
 		else out << ",";
 	}
+
 	return out;
 }

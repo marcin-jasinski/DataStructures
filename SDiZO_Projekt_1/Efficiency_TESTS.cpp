@@ -55,9 +55,6 @@ void Efficiency_TESTS::generateTestData(int testRange)
 
 void Efficiency_TESTS::run(int testRange)
 {
-
-	/* 
-	
 	std::fstream file;
 	file.open("benchmark.txt", std::ios::out | std::ios::app);
 	if (file.good())
@@ -73,7 +70,7 @@ void Efficiency_TESTS::run(int testRange)
 
 	int number, neg_rng;
 	double endTime;
-
+	
 	// +++++++ ARRAY TESTS +++++++++++
 
 	system("cls");
@@ -443,6 +440,25 @@ void Efficiency_TESTS::run(int testRange)
 		binaryHeap.~BinaryHeap();
 	}
 
-	*/
+	system("cls");
+	file << "\nHeap - find value" << std::endl;
+	for (int i = 1; i <= 100; i++) {
+
+		generateTestData(testRange);
+		binaryHeap.readDataFromFile();
+
+		number = (std::rand() % INT32_MAX);
+		neg_rng = (std::rand() % INT32_MAX);
+		if (neg_rng % 2 == 1) number = number * (-1);
+
+		StartCounter();
+		binaryHeap.findValue(number);
+		endTime = GetCounter();
+		std::cout << "Heap find value " << i << " -> " << endTime << std::endl;
+
+		file << endTime << std::endl;
+
+		binaryHeap.~BinaryHeap();
+	}
 }
 

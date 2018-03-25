@@ -31,6 +31,7 @@ public:
 
 	void addNewElement(int);
 	void deleteRoot();
+	void findValue(int);
 	
 	friend std::ostream& operator << (std::ostream&, BinaryHeap&);
 };
