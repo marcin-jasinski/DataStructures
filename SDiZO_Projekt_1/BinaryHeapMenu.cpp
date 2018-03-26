@@ -27,6 +27,7 @@ void BinaryHeapMenu::showBinaryHeapMenu()
 		heap.readDataFromFile();
 		std::cout << "\nHeap read from file: " << std::endl;
 		std::cout << heap << std::endl;
+		heap.display("", "", 0);
 		showOperationsMenu();
 		break;
 
@@ -34,6 +35,7 @@ void BinaryHeapMenu::showBinaryHeapMenu()
 		heap.readDataFromKeyboard();
 		std::cout << "\nHeap read from keyboard: " << std::endl;
 		std::cout << heap << std::endl;
+		heap.display("", "", 0);
 		showOperationsMenu();
 		break;
 
@@ -49,7 +51,8 @@ void BinaryHeapMenu::showOperationsMenu()
 	std::cout << "1 - add new element to the heap" << std::endl;
 	std::cout << "2 - remove root element" << std::endl;
 	std::cout << "3 - get root element" << std::endl;
-	std::cout << "4 - exit" << std::endl;
+	std::cout << "4 - find value" << std::endl;
+	std::cout << "5 - exit" << std::endl;
 	std::cout << "\\> ";
 
 	int userChoice;
@@ -58,22 +61,24 @@ void BinaryHeapMenu::showOperationsMenu()
 	int userInput;
 	int userIndex;
 
-	while (userChoice != 8) {
+	while (userChoice != 5) {
 		switch (userChoice) {
 		case 1:
 			std::cout << "\nValue to add: ";
 			std::cin >> userInput;
 			heap.addNewElement(userInput);
 			std::cout << heap << std::endl;
+			heap.display("", "", 0);
 			break;
 
 		case 2:
 			heap.deleteRoot();
 			std::cout << heap << std::endl;
+			heap.display("", "", 0);
 			break;
 
 		case 3:
-			std::cout << "Root: " << heap.getRoot() << std::endl;
+			std::cout << "\nRoot: " << heap.getRoot() << std::endl;
 			break;
 
 		case 4:
@@ -83,7 +88,7 @@ void BinaryHeapMenu::showOperationsMenu()
 			break;
 
 		case 5:
-			std::cout << "Press ENTER to exit.";
+			std::cout << "\nPress ENTER to exit.";
 			break;
 
 		default:

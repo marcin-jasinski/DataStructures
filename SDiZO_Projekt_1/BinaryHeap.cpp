@@ -9,6 +9,10 @@
 // no need to pre-initialize elements array
 BinaryHeap::BinaryHeap() 
 {
+	cr = cl = cp = "  ";
+	cr[0] = 218; cr[1] = 196;
+	cl[0] = 192; cl[1] = 196;
+	cp[0] = 179;
 }
 
 // default destructor
@@ -94,6 +98,26 @@ void BinaryHeap::findValue(int element)
 {
 	this->heapElements->findValue(element);
 	return;
+}
+
+void BinaryHeap::display(std::string sp, std::string sn, int v)
+{
+	std::string s;
+
+	if (v < this->heapElements->getSize())
+	{
+		s = sp;
+		if (sn == cr) s[s.length() - 2] = ' ';
+		display(s + cp, cr, 2 * v + 2);
+
+		s = s.substr(0, sp.length() - 2);
+
+		std::cout << s << sn << this->heapElements->get(v) << std::endl;
+
+		s = sp;
+		if (sn == cl) s[s.length() - 2] = ' ';
+		display(s + cp, cl, 2 * v + 1);
+	}
 }
 
 // returns current maximum element (root)

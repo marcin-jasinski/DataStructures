@@ -1,11 +1,14 @@
 #pragma once
 #include <iostream>
 #include <cstdlib>
+#include <string>
 #include "Array.h"
 
 class BinaryHeap
 {
 private:
+
+	std::string cr, cl, cp;
 
 	// using alredy existing Array class with all it's functionality 
 	Array* heapElements;			
@@ -33,6 +36,8 @@ public:
 	void deleteRoot();
 	void findValue(int);
 	
+	void display(std::string, std::string, int);
+
 	friend std::ostream& operator << (std::ostream&, BinaryHeap&);
 };
 
